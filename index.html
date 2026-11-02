@@ -35,8 +35,12 @@
             <div class="actions"><a class="button primary" href="#contact">Request a technical briefing <span>→</span></a><a class="text-link" href="#paths">See how attack paths are reviewed <span>↓</span></a></div>
           </div>
           <div class="radar-wrap" aria-hidden="true">
-            <div class="radar"><div class="radar-sweep"></div><span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span><span class="axis horizontal"></span><span class="axis vertical"></span><span class="node n1"></span><span class="node n2"></span><span class="node n3"></span><span class="core"></span></div>
-            <div class="radar-label entry">ENTRY POINT <b>OBSERVED</b></div><div class="radar-label weakness">WEAKNESS <b>INFERENCE</b></div><div class="radar-label asset">PROTECTED ASSET <b>UNKNOWN</b></div>
+            <video class="radar-video" autoplay loop muted playsinline preload="auto">
+              <source src="/sentinel-radar-loop.mp4" type="video/mp4" />
+            </video>
+            <div class="radar-label entry"><span class="signal-dot"></span><span>ENTRY POINT · OBSERVED</span><i></i></div>
+            <div class="radar-label weakness"><span>WEAKNESS · INFERENCE</span><i class="signal-dot"></i></div>
+            <div class="radar-label asset"><span class="signal-dot"></span><span>PROTECTED ASSET · UNKNOWN</span><i></i></div>
           </div>
           <div class="hero-foot"><span>Fig. 1 — Access, weakness, asset. Every node carries its evidence label.</span><span>Scroll to assess <i>↓</i></span></div>
         </section>
