@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="VAJRAKSH SENTINEL — evidence-led software assessment for defence evaluation." />
+    <title>VAJRAKSH SENTINEL | Evidence-led software assessment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="header">
+        <a class="brand" href="#top" aria-label="Vajraksh Sentinel home">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 16c5-8 23-8 28 0-5 8-23 8-28 0Z"/><circle cx="16" cy="16" r="4"/><path d="M16 2v6M16 24v6"/></svg>
+          <span><small>VAJRAKSH</small><strong>SENTINEL</strong></span>
+        </a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="#paths">Attack paths</a><a href="#workflow">Workflow</a><a href="#evidence">Evidence</a><a href="#deployment">Deployment</a><a href="#boundaries">Boundaries</a>
+        </nav>
+        <a class="header-cta" href="#contact">Technical briefing <span>↗</span></a>
+        <button class="menu-button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-grid"></div>
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Software assessment update assurance for defence evaluation</p>
+            <h1>Evidence, held to <em>account.</em></h1>
+            <p class="lead">Understand the software being delivered, observe its tested behaviour, and retain the evidence behind its security assessment.</p>
+            <p class="sublead">Review what suppliers deliver and what each update changes inside your own enclave, with a human making the call.</p>
+            <div class="actions"><a class="button primary" href="#contact">Request a technical briefing <span>→</span></a><a class="text-link" href="#paths">See how attack paths are reviewed <span>↓</span></a></div>
+          </div>
+          <div class="radar-wrap" aria-hidden="true">
+            <div class="radar"><div class="radar-sweep"></div><span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span><span class="axis horizontal"></span><span class="axis vertical"></span><span class="node n1"></span><span class="node n2"></span><span class="node n3"></span><span class="core"></span></div>
+            <div class="radar-label entry">ENTRY POINT <b>OBSERVED</b></div><div class="radar-label weakness">WEAKNESS <b>INFERENCE</b></div><div class="radar-label asset">PROTECTED ASSET <b>UNKNOWN</b></div>
+          </div>
+          <div class="hero-foot"><span>Fig. 1 — Access, weakness, asset. Every node carries its evidence label.</span><span>Scroll to assess <i>↓</i></span></div>
+        </section>
+
+        <section class="principles section">
+          <div class="section-top"><p class="eyebrow">Assessment posture</p><p class="section-note">The assessment system is designed around the conditions in which defence evaluators work.</p></div>
+          <div class="principle-grid">
+            <article><span>01</span><h3>Offline by design</h3><p>Assessment, investigation and report review work without an external service.</p></article>
+            <article><span>02</span><h3>Binary-first</h3><p>Starts from the software that was delivered. Source and build records are optional extras.</p></article>
+            <article><span>03</span><h3>Analyst-run validation</h3><p>Analysts choose and run the tests. SENTINEL never launches attacks on its own.</p></article>
+            <article><span>04</span><h3>Human decision</h3><p>An authorized person keeps the deployment decision. There is no autopilot.</p></article>
+          </div>
+        </section>
+
+        <section class="problem section" id="product">
+          <div class="split-heading"><div><p class="eyebrow">The evaluator's problem</p><h2>Six connected questions every release review has to answer.</h2></div><p>Dependency lists, scanner output, behaviour records and manual notes rarely answer them together. SENTINEL keeps them in one assessment record.</p></div>
+          <div class="question-grid">
+            <article><b>01 · Identity</b><p>Is this the exact release that was assessed?</p></article><article><b>02 · Composition</b><p>Which components can be identified, and what is still uncertain?</p></article><article><b>03 · Known risk</b><p>Which advisories may apply to those components and versions?</p></article><article><b>04 · Behaviour</b><p>What happened during the recorded installation and test scenarios?</p></article><article><b>05 · Attack paths</b><p>How could access, weaknesses and conditions combine to affect a protected asset?</p></article><article><b>06 · Change</b><p>What differs from the last assessed release, and does it matter?</p></article>
+          </div>
+        </section>
+
+        <section class="paths section" id="paths">
+          <div class="split-heading"><div><p class="eyebrow">Attack-path analysis</p><h2>Understand the path from weakness to impact.</h2></div><p>An advisory match says a component may be affected. It does not say whether an attacker can reach it, what access they would need, or what it would mean for a protected asset.</p></div>
+          <div class="path-panel reveal">
+            <div class="tabs" role="tablist"><button class="tab active" data-path="unresolved" role="tab">Unresolved route</button><button class="tab" data-path="blocked" role="tab">Blocked route</button><button class="tab" data-path="backed" role="tab">Evidence-backed route</button></div>
+            <div class="path-content"><div class="path-map"><p class="map-meta" id="path-meta"></p><h3 id="path-title"></h3><ol id="path-steps"></ol></div><aside class="verdict"><span>Overall path status</span><h3 id="path-verdict"></h3><p id="path-description"></p><div><small>Step-level validation</small><b id="path-validation"></b></div><div><small>Control that could break the route</small><b id="path-control"></b></div></aside></div>
+          </div>
+          <div class="path-rules"><article><b>No invented steps</b><p>A vulnerability ID alone never creates an entry point, a privilege or an impact.</p></article><article><b>Contradictions stay on screen</b><p>A blocked route is recorded as blocked under those conditions.</p></article><article><b>One step is not the chain</b><p>Validating a single step never silently marks the whole path demonstrated.</p></article><article><b>No score, no probability</b><p>Analysts prioritise by evidence quality, access needed and consequence.</p></article></div>
+        </section>
+
+        <section class="workflow section" id="workflow"><div class="split-heading"><div><p class="eyebrow">End-to-end workflow</p><h2>From delivered release to reviewed dossier.</h2></div><p>An incomplete stage stays incomplete. A quiet run, missing evidence or a failed reproduction never quietly becomes a clean result.</p></div><div class="workflow-list" id="workflow-list"></div></section>
+
+        <section class="evidence section" id="evidence"><div class="evidence-card"><div><p class="eyebrow">Evidence change</p><h2>Keep the evidence behind every conclusion.</h2><p>Reports and structured outputs come from the same assessment record, so what a reviewer reads is what the tools found.</p></div><div class="dossier"><div class="dossier-title">Assessment dossier <span>Illustrative layout</span></div><dl><dt>Input identities</dt><dd>hashes · sizes · provenance</dd><dt>Tools and advisory snapshot</dt><dd>versions · freshness</dd><dt>Environment and policy</dt><dd>profile · scope</dd><dt>Findings and attack paths</dt><dd>step-level evidence · revision</dd><dt>Validation outcomes</dt><dd>captured · manually attached</dd><dt>Coverage limits</dt><dd>unsupported · unknown · not tested</dd><dt>Reviewer decisions</dt><dd>attributable · exceptions · history</dd></dl></div></div><p class="integrity-note">Evidence bundles can be signed so tampering is detectable. A signature protects integrity; it does not make every recorded claim true.</p></section>
+
+        <section class="comparison section"><p class="eyebrow">Release comparison</p><h2>Candidate vs reference</h2><div class="compare-grid"><div><h3>Changes in the software</h3><ul><li>Files and components</li><li>Permissions</li><li>Package contents</li><li>Observed behaviour</li><li>Advisory exposure</li><li>Path evidence prerequisites</li></ul></div><div><h3>Changes in assessment conditions</h3><ul><li>Advisory snapshot</li><li>Tool versions</li><li>Policy</li><li>Configuration</li><li>Test coverage</li></ul></div></div><p class="integrity-note">A new finding may come from new knowledge about unchanged software. SENTINEL does not call that a newly introduced defect.</p></section>
+
+        <section class="deployment section" id="deployment"><div class="split-heading"><div><p class="eyebrow">Deployment posture</p><h2>Designed for the evaluation enclave.</h2></div><p>SENTINEL assumes restricted connectivity from the start. Assessed software, customer evidence and results do not need to leave your environment.</p></div><div class="deployment-grid"><article><span>01</span><h3>Offline end to end</h3><p>Assessment, investigation, report generation and evidence review run with no external service or hidden cloud dependency.</p></article><article><span>02</span><h3>Controlled offline updates</h3><p>Advisory data, tools and policy arrive through a reviewed offline process with recorded provenance.</p></article><article><span>03</span><h3>Isolated execution</h3><p>Submitted software runs in disposable environments with no route to controller credentials or operational networks.</p></article><article><span>04</span><h3>Separated responsibilities</h3><p>Submission, analysis, administration and review are distinct roles, configured to approved procedure.</p></article><article><span>05</span><h3>Evidence stays inside</h3><p>No implicit upload of assessed content. Secrets are shown masked. Exports are controlled.</p></article><article><span>06</span><h3>Tamper-evident records</h3><p>Modified bundles fail their integrity check. Every disposition and exception is attributable.</p></article></div></section>
+
+        <section class="engagement section"><div class="engagement-inner"><div><p class="eyebrow">Engagement</p><h2>Proven with your evaluators, not asserted to them.</h2><p>Workflow benefit is a hypothesis until measured in your procedure. No performance, detection-rate or time-saving figures are claimed.</p></div><ol><li><b>01</b> Agree a representative assessment procedure with your evaluators.</li><li><b>02</b> Run SENTINEL on a representative release, alongside the existing workflow.</li><li><b>03</b> Measure review effort, evidence retrieval, corrections and reproducibility.</li><li><b>04</b> Establish the real acceptance and procurement requirements.</li></ol></div></section>
+
+        <section class="boundaries section" id="boundaries"><div class="split-heading"><div><p class="eyebrow">Trust boundaries</p><h2>Clear about what it does and what it doesn't promise.</h2></div></div><div class="boundary-grid"><article><h3>SENTINEL does</h3><ul><li>Link every conclusion to the exact artifact and its evidence.</li><li>Keep unsupported content, unknowns and coverage gaps visible in the report.</li><li>Capture analyst-run validation with procedure, conditions and outcome.</li><li>Separate observed behaviour from permitted behaviour.</li><li>Bring data, tools and updates through a controlled offline process.</li></ul></article><article><h3>SENTINEL does not</h3><ul><li>Guarantee it finds every unknown vulnerability or malicious logic.</li><li>Treat a CVE match as proof of exploitability.</li><li>Generate or run attacks on its own.</li><li>Authorize deployment or confer certification.</li><li>Replace the evaluator's judgment with an opaque safety score.</li></ul></article></div></section>
+
+        <section class="contact section" id="contact"><div class="contact-grid"><div><p class="eyebrow">Evaluation briefing</p><h2>Start with a technical briefing.</h2><p>A briefing walks evaluators through the workflow on a synthetic demonstration target and agrees what a representative evaluation would measure.</p></div><form id="briefing-form"><label>Name<input name="name" autocomplete="name" required /></label><label>Organisation / unit<input name="organisation" required /></label><label>Work email<input type="email" name="email" autocomplete="email" required /></label><button class="button primary" type="submit">Request a technical briefing <span>→</span></button><p class="form-note" id="form-note">Details are used only to arrange the briefing.</p></form></div></section>
+      </main>
+      <footer><div class="footer-top"><a class="brand" href="#top"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 16c5-8 23-8 28 0-5 8-23 8-28 0Z"/><circle cx="16" cy="16" r="4"/><path d="M16 2v6M16 24v6"/></svg><span><small>VAJRAKSH</small><strong>SENTINEL</strong></span></a><nav><a href="#paths">Attack paths</a><a href="#workflow">Workflow</a><a href="#evidence">Evidence</a><a href="#boundaries">Boundaries</a><a href="#contact">Contact</a></nav><a href="mailto:contact@vajraksh.com">contact@vajraksh.com</a></div><p>This site describes the intended SENTINEL product. It does not state current availability, validated performance, customer adoption or certification. No customer contract, partnership, endorsement or approval by any government body or armed service is stated or implied.</p><small>© 2026 VAJRAKSH · Built in India. For the air gap.</small></footer>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
