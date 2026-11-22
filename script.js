@@ -1,11 +1,98 @@
-const pathData={
- unresolved:{meta:'PATH REV 3 · UNIT FLEET READINESS REGISTER · ILLUSTRATIVE',title:'Can a read-only user change a maintenance record?',verdict:'Unresolved',description:'Missing information leaves this route open. It is a question to investigate, not a finding — and it has not been dismissed or demonstrated.',validation:'0 of 5 steps analyst-validated',control:'Server-side role check on the update request — proposed only.',color:'#d8ae55',steps:[['Read-only user','Declared starting access in the assessment scope.','Assumption','#a5ad9f'],['Maintenance-update request','Request seen in a controlled run.','Observed','#8fb5f2'],['Missing role check','Hypothesis. No evidence recorded yet.','Inference','#d8ae55'],['Unauthorized persisted change','Needs independent evidence of state change.','Unknown','#a5ad9f'],['Misleading readiness record','Depends on step 4 and the eligibility rules.','Conditional','#d8ae55']]},
- blocked:{meta:'PATH REV 4 · UNIT FLEET READINESS REGISTER · ILLUSTRATIVE',title:'Same route, after the analyst runs the test',verdict:'Blocked under recorded conditions',description:'The server rejected the recorded request and independently checked state stayed unchanged. Other requests, roles or paths are not thereby assessed.',validation:'2 of 5 steps analyst-validated',control:'Server-side role check — supported by the recorded rejection.',color:'#f2a68f',steps:[['Read-only user','Session recorded in the validation run.','Analyst-validated','#e9e7e2'],['Maintenance-update request','Request and response preserved with hashes.','Analyst-validated','#e9e7e2'],['Role check','Request rejected. The hypothesised gap is contradicted.','Contradicted','#f2a68f'],['Persisted change','Independent state check: record unchanged.','Contradicted','#f2a68f'],['Misleading readiness record','Prerequisite absent under these conditions.','Contradicted','#f2a68f']]},
- backed:{meta:'PATH REV 1 · STRUCTURE ONLY · PLACEHOLDERS IN BRACKETS',title:'What an evidence-backed path looks like',verdict:'Demonstrated under recorded conditions',description:'Every material step has evidence and the analyst validated the chain together in one run. The result is bound to this path revision, artifact and run context.',validation:'2 of 5 steps analyst-validated',control:'[CONTROL] — would interrupt the route at step 3; proposed only.',color:'#6cc9b6',steps:[['[Starting access]','Declared in scope.','Assumption','#a5ad9f'],['[Entry point]','Found in static inspection; source location retained.','Static evidence','#6cc9b6'],['[Component @ version] weakness','Advisory match under a supported rule.','Static evidence','#6cc9b6'],['[Capability gained]','Reproduced by the analyst; run context recorded.','Analyst-validated','#e9e7e2'],['[Protected asset affected]','Effect confirmed in the same run.','Analyst-validated','#e9e7e2']]}
-};
-function renderPath(id){const d=pathData[id];document.getElementById('path-meta').textContent=d.meta;document.getElementById('path-title').textContent=d.title;document.getElementById('path-verdict').textContent=d.verdict;document.getElementById('path-verdict').style.color=d.color;document.getElementById('path-description').textContent=d.description;document.getElementById('path-validation').textContent=d.validation;document.getElementById('path-control').textContent=d.control;document.getElementById('path-steps').innerHTML=d.steps.map((s,i)=>`<li><span class="step-number" style="border-color:${s[3]};color:${s[3]}">${i+1}</span><b>${s[0]}</b><span class="chip" style="color:${s[3]}">${s[2]}</span><p>${s[1]}</p></li>`).join('')}
-document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelector('.tab.active').classList.remove('active');b.classList.add('active');renderPath(b.dataset.path)}));renderPath('unresolved');
-const stages=[['Submit','Declare scope and policy. Retain exact artifact bytes before anything else touches them.'],['Identify','Record hashes, provenance and handling outcome. Nothing from submission runs on the controller.'],['Inspect','Build the component inventory, check static properties and match the local advisory snapshot.'],['Observe','The analyst installs and exercises software in a disposable environment. Collection health is recorded.'],['Analyse paths','Relate findings to entry points, access, conditions and assets. Expose gaps and controls.'],['Validate','The analyst tests selected hypotheses. Procedure, prerequisites and evidence files are captured and hashed.'],['Compare','Check candidate release against policy on its own. A previous release never authorizes a violation.'],['Review','A human reviews findings, paths and coverage, and records the disposition.']];document.getElementById('workflow-list').innerHTML=stages.map((s,i)=>`<article><span>${String(i+1).padStart(2,'0')}</span><h3>${s[0]}</h3><p>${s[1]}</p></article>`).join('');
-document.querySelector('.menu-button').addEventListener('click',e=>{const nav=document.querySelector('.nav');const open=nav.style.display==='flex';nav.style.display=open?'':'flex';nav.style.cssText=open?'':'display:flex;position:absolute;top:65px;left:0;right:0;padding:20px;background:#0c100d;flex-direction:column;gap:18px;border-bottom:1px solid #2b342c';e.currentTarget.setAttribute('aria-expanded',String(!open));});
-document.getElementById('briefing-form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('form-note').textContent='Thank you. This static site is ready to connect to your preferred contact workflow.';e.currentTarget.reset();});
-const radarVideo=document.querySelector('.radar-video');if(radarVideo&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)radarVideo.pause();
+// Product demonstration and display interactions. Sample reviewer decisions stay in memory.
+// Only the display preference is persisted; form and assessment details stay in memory.
+const themeButton = document.querySelector('.theme-toggle');
+const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+let explicitTheme;
+try { explicitTheme = localStorage.getItem('vajraksh-theme'); } catch {}
+if (!['light', 'dark'].includes(explicitTheme)) explicitTheme = null;
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  themeButton.setAttribute('aria-pressed', String(theme === 'dark'));
+  themeButton.title = `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`;
+}
+applyTheme(document.documentElement.dataset.theme);
+themeButton.addEventListener('click', () => {
+  explicitTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  applyTheme(explicitTheme);
+  try { localStorage.setItem('vajraksh-theme', explicitTheme); } catch {}
+});
+systemTheme.addEventListener('change', event => {
+  if (!explicitTheme) applyTheme(event.matches ? 'dark' : 'light');
+});
+
+const menuButton = document.querySelector('.menu-toggle');
+const navigation = document.getElementById('primary-nav');
+function closeMenu() {
+  navigation.classList.remove('is-open');
+  menuButton.setAttribute('aria-expanded', 'false');
+}
+menuButton.addEventListener('click', () => {
+  const open = menuButton.getAttribute('aria-expanded') !== 'true';
+  menuButton.setAttribute('aria-expanded', String(open));
+  navigation.classList.toggle('is-open', open);
+});
+navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+    closeMenu();
+    menuButton.focus();
+  }
+});
+window.matchMedia('(min-width: 801px)').addEventListener('change', closeMenu);
+
+const tabs = [...document.querySelectorAll('[role="tab"]')];
+function activateTab(tab, moveFocus = false) {
+  tabs.forEach(candidate => {
+    const selected = candidate === tab;
+    candidate.setAttribute('aria-selected', String(selected));
+    candidate.tabIndex = selected ? 0 : -1;
+    document.getElementById(candidate.getAttribute('aria-controls')).hidden = !selected;
+  });
+  if (moveFocus) tab.focus();
+}
+tabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => activateTab(tab));
+  tab.addEventListener('keydown', event => {
+    let next;
+    if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+    if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = tabs.length - 1;
+    if (next !== undefined) {
+      event.preventDefault();
+      activateTab(tabs[next], true);
+    }
+  });
+});
+
+const decisionButtons = [...document.querySelectorAll('[data-decision]')];
+decisionButtons.forEach(button => {
+  button.setAttribute('aria-pressed', 'false');
+  button.addEventListener('click', () => {
+    const rationale = document.getElementById('review-rationale');
+    if (!rationale.value.trim()) {
+      document.getElementById('decision-status').textContent = 'Add a short rationale before recording this sample decision.';
+      rationale.focus();
+      return;
+    }
+    decisionButtons.forEach(candidate => {
+      candidate.classList.remove('selected-decision');
+      candidate.setAttribute('aria-pressed', String(candidate === button));
+    });
+    document.getElementById('decision-status').textContent = `${button.dataset.decision} — sample decision noted for this preview. Rationale: ${rationale.value.trim()}. This is not a deployment approval; nothing is submitted or saved.`;
+  });
+});
+
+if ('IntersectionObserver' in window) {
+  const links = [...navigation.querySelectorAll('a')];
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      links.forEach(link => {
+        if (link.hash === `#${entry.target.id}`) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    });
+  }, { rootMargin: '-15% 0px -55% 0px' });
+  links.forEach(link => observer.observe(document.querySelector(link.hash)));
+}
