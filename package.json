@@ -1,0 +1,10 @@
+{
+  "name": "vajraksh-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VAJRAKSH website and Resend briefing endpoint",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  }
+}
