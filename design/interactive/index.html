@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the VAJRAKSH SENTINEL product vision: offline binary assessment, isolated testing and evidence-led review.">
+  <title>VAJRAKSH — Software assurance, before the air gap</title>
+  <script>
+    (() => {
+      let savedTheme;
+      try { savedTheme = localStorage.getItem('vajraksh-theme'); } catch {}
+      document.documentElement.dataset.theme = savedTheme === 'light' || savedTheme === 'dark'
+        ? savedTheme : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    })();
+  </script>
+  <link rel="preload" href="assets/newsreader.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/inter.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="mockup.css">
+  <script src="mockup.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="brand-mark" viewBox="0 0 32 52"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C-1 10 2 20 16 26C30 32 33 42 20 50M20 2C33 10 30 20 16 26C2 32-1 42 12 50M16 0V52"/></g><path fill="#ad2948" d="m16 19 6 7-6 7-6-7z"/></symbol>
+    <symbol id="package-icon" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.3"><path d="m6 12 14-7 14 7v17l-14 7-14-7zM6 12l14 7 14-7M20 19v17M13 8.5l14 7V23"/></g></symbol>
+    <symbol id="isolate-icon" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 14V5h9M26 5h9v9M35 26v9h-9M14 35H5v-9"/><rect x="13" y="13" width="14" height="14"/><path d="M17 17h6v6h-6z"/></g></symbol>
+    <symbol id="record-icon" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.3"><path d="M10 4h14l7 7v25H10zM24 4v8h7M15 19h11M15 24h11M15 29h7"/></g></symbol>
+  </svg>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Vajraksh home"><svg aria-hidden="true"><use href="#brand-mark"/></svg><span>VAJRAKSH</span></a>
+    <nav id="primary-nav" aria-label="Primary navigation"><a href="#product">Product</a><a href="#trust">Trust</a><a href="#about">About us</a><a href="#contact">Contact</a></nav>
+    <a class="button button-outline header-briefing" href="#contact">Technical briefing</a>
+    <button class="theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false" title="Switch to dark theme">
+      <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.4 14.3A8.6 8.6 0 0 1 9.7 3.6a8.6 8.6 0 1 0 10.7 10.7Z"/></svg>
+      <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+    </button>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">Menu <span aria-hidden="true">☰</span></button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-photo" role="img" aria-label="Monochrome Himalayan ridges emerging through mist"></div>
+      <div class="hero-contours" aria-hidden="true"></div>
+      <div class="hero-panel">
+        <p class="eyebrow">Built in India. Designed for the air gap.</p>
+        <h1 id="hero-title">Secure the software<br class="desktop-break"> before it enters<br class="desktop-break"> your network.</h1>
+        <p class="hero-description">Know what’s inside. Observe what it does.<br>Keep the decision in your hands.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#contact">Request a technical briefing</a><a class="quiet-link" href="#product">Explore SENTINEL</a></div>
+        <p class="hero-note">SENTINEL · The product vision</p>
+      </div>
+      <div class="landscape-caption" aria-hidden="true"><span>Quiet vigilance.<br>At every boundary.</span><span class="crosshair"></span></div>
+    </section>
+
+    <div class="principle-strip" aria-label="Core principles"><span>Offline by design</span><span>Binary-first assessment</span><span>Isolated execution</span><span>Human authority</span></div>
+
+    <section class="section intro product-intro" id="product">
+      <div class="section-heading heading-split"><div><p class="eyebrow">Meet SENTINEL</p><h2>What comes in<br>deserves a closer look.</h2></div><div class="product-summary"><p>Software updates. New applications. Supplier packages. SENTINEL is designed to inspect what’s inside and observe how it behaves, before it reaches your network.</p><p>Offline binary assessment, disposable sandbox testing and automated triage. One place to see what needs your attention.</p><a class="quiet-link" href="#assessment">Take a look inside</a></div></div>
+    </section>
+
+    <section class="section assessment-section soft-section" id="assessment">
+      <div class="section-heading heading-split"><div><p class="eyebrow">Explore the product</p><h2>A clearer picture.<br>A better question.</h2></div><div><p>Look inside a package. Follow its behaviour. See what an evaluator would review.</p><p class="demo-caption">Interactive concept · synthetic sample data</p></div></div>
+      <div class="assessment-console">
+        <div class="console-bar"><span class="console-brand">SENTINEL <span>/ Assessment A-0142</span></span><span class="console-offline">Offline evaluation</span></div>
+        <div class="console-body">
+          <aside class="file-sidebar"><span class="micro-label">Submitted package</span><h3>gcs-update-v2.4.1.deb</h3><dl><dt>Type</dt><dd>Linux package</dd><dt>Source</dt><dd>Sample supplier</dd><dt>SHA-256</dt><dd>9f3a…c71e <span>(abbreviated)</span></dd><dt>Assessment scope</dt><dd>Static + isolated runtime</dd></dl><div class="coverage"><span class="micro-label">Sample coverage</span><strong>142 <span>/ 148 parts</span></strong><div class="coverage-bar" aria-hidden="true"><span></span></div><p>6 unidentified parts remain flagged for manual review.</p></div></aside>
+          <div class="console-main">
+            <div class="tabs" role="tablist" aria-label="Assessment stages"><button id="tab-composition" role="tab" aria-selected="true" aria-controls="panel-composition" tabindex="0">Composition</button><button id="tab-runtime" role="tab" aria-selected="false" aria-controls="panel-runtime" tabindex="-1">Sandbox activity</button><button id="tab-review" role="tab" aria-selected="false" aria-controls="panel-review" tabindex="-1">Evaluator review</button></div>
+            <div id="panel-composition" role="tabpanel" aria-labelledby="tab-composition" tabindex="0">
+              <div class="panel-title"><h3>What the package contains</h3><span class="tag">Static inspection</span></div><div class="table-scroll"><table><caption class="sr-only">Illustrative component findings; not live advisory results</caption><thead><tr><th>Component</th><th>Version</th><th>Observation</th><th>Review</th></tr></thead><tbody><tr><td>openssl</td><td>1.1.1k</td><td>Advisory matches</td><td><span class="finding critical">Priority review</span></td></tr><tr><td>libcurl</td><td>7.68.0</td><td>Advisory matches</td><td><span class="finding">Investigate</span></td></tr><tr><td>zlib</td><td>1.2.11</td><td>Advisory match</td><td><span class="finding">Investigate</span></td></tr><tr><td>telemetry-agent</td><td>2.4.1</td><td>Unidentified component</td><td><span class="finding">Manual review</span></td></tr></tbody></table></div><p class="console-note">A component match is a starting point. Applicability and exploitability need further evidence.</p>
+            </div>
+            <div id="panel-runtime" role="tabpanel" aria-labelledby="tab-runtime" tabindex="0" hidden><div class="panel-title"><h3>Behaviour under recorded conditions</h3><span class="tag">Disposable sandbox</span></div><ol class="event-list"><li><time>00:00</time><div><strong>Isolated environment prepared</strong><p>Disposable instance; no route to operational networks.</p></div><span class="event-type">Context</span></li><li><time>00:04</time><div><strong>Installer spawns a shell</strong><p>Parent-child process relationship retained for review.</p></div><span class="event-type">Observed</span></li><li class="flagged"><time>00:07</time><div><strong>Write outside expected package paths</strong><p>Automated triage flags the observation for investigation.</p></div><span class="event-type">Review</span></li><li><time>00:11</time><div><strong>Outbound connection attempted</strong><p>Destination and process captured; external access blocked.</p></div><span class="event-type">Observed</span></li></ol><p class="console-note">Illustrative observations. Suspicious behaviour is not, by itself, proof of malicious intent.</p></div>
+            <div id="panel-review" role="tabpanel" aria-labelledby="tab-review" tabindex="0" hidden><div class="panel-title"><h3>The decision stays with you</h3><span class="tag">Evaluator authority</span></div><p class="review-intro">Sample dossier: unresolved advisory applicability, an unidentified component and runtime observations require review.</p><label class="review-label" for="review-rationale">Reviewer rationale</label><textarea id="review-rationale" rows="2" maxlength="500" placeholder="Add a short reason for this sample decision…"></textarea><div class="decision-actions" role="group" aria-label="Record a sample decision"><button data-decision="Approve">Approve</button><button data-decision="Hold">Hold</button><button class="selected-decision" data-decision="Investigate">Investigate</button></div><p id="decision-status" class="console-note" role="status" aria-live="polite">Choose a decision to explore the review interaction. Nothing is submitted or saved.</p></div>
+          </div>
+        </div><div class="console-footer"><span>Evidence, context and uncertainty in one record.</span><span>Illustrative interface · not a live assessment</span></div>
+      </div>
+    </section>
+
+    <section class="section deployment-section dark-section" id="trust"><div class="section-heading heading-split"><div><p class="eyebrow">Built around the enclave</p><h2>Your software.<br>Your evidence. Your boundary.</h2></div><p>Restricted connectivity is a starting condition. The intended architecture keeps assessment and review within your controlled environment.</p></div><div class="trust-grid"><article><h3>Offline operation</h3><p>Local advisory data and assessment tools. No implicit cloud upload of submitted software or evidence.</p></article><article><h3>Disposable execution</h3><p>Test binaries inside isolated environments, separated from controller credentials and operational networks.</p></article><article><h3>Controlled updates</h3><p>Bring advisory data and tool updates through your approved offline process, with recorded provenance.</p></article><article><h3>Attributable review</h3><p>Separate analysis and approval responsibilities. Retain the context behind decisions and exceptions.</p></article></div><div class="trust-statement"><svg aria-hidden="true"><use href="#isolate-icon"/></svg><p>Isolation is a condition.<br><span>Assurance is a process.</span></p></div></section>
+
+    <section class="section team-section soft-section" id="about"><div class="section-heading heading-split"><div><p class="eyebrow">The people behind the product</p><h2>Two founders.<br>One shared conviction.</h2></div><p>Trust in software should be earned before it crosses the boundary.</p></div><div class="team-grid"><article><div class="founder-monogram" aria-hidden="true">SP</div><div><span class="eyebrow">Business &amp; product</span><h3>Satya Prakash Panda</h3><p>Co-founder</p><p class="founder-bio">APM, MoveInSync · 2× startup founder<br>BITS Pilani ’26, Chemical Engineering</p></div></article><article><div class="founder-monogram" aria-hidden="true">KM</div><div><span class="eyebrow">Technology</span><h3>Kushagra Malviya</h3><p>Co-founder</p><p class="founder-bio">MTS, Database Security Organization, Oracle<br>BITS Pilani ’26, Computer Science</p></div></article></div></section>
+
+    <section class="section contact-section" id="contact"><div class="contact-copy"><p class="eyebrow">Let’s talk</p><h2>Let’s examine<br>what comes next.</h2><p>Curious about what SENTINEL could reveal in your software? Let’s start with a technical conversation.</p><a class="contact-email" href="mailto:contact@vajraksh.com">contact@vajraksh.com</a><span class="contact-caption">Built in India. Designed for controlled environments.</span></div><form id="preview-form"><span class="eyebrow">Request a technical briefing</span><p class="form-intro">Tell us a little about your evaluation.</p><label for="contact-name">Name</label><input id="contact-name" name="name" autocomplete="name" maxlength="120" placeholder="Your full name" required><label for="contact-organisation">Organisation / unit</label><input id="contact-organisation" name="organisation" autocomplete="organization" maxlength="200" placeholder="Your organisation" required><label for="contact-email">Work email</label><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@organisation.in" required><label for="contact-interest">Area of interest</label><select id="contact-interest" name="interest"><option>Technical briefing</option><option>Offline binary assessment</option><option>Sandbox testing &amp; triage</option><option>Evaluation / pilot</option></select><button class="button button-primary" type="submit">Preview briefing request</button><p class="form-note" id="form-status" role="status" aria-live="polite">Design preview only. This form does not send or store your details.</p></form></section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-main"><a class="brand" href="#top"><svg aria-hidden="true"><use href="#brand-mark"/></svg><span>VAJRAKSH</span></a><p>Software assurance.<br>Before the air gap.</p><nav aria-label="Footer navigation"><a href="#product">Product</a><a href="#assessment">Assessment preview</a><a href="#trust">Trust &amp; deployment</a><a href="#about">About us</a><a href="#contact">Contact</a></nav></div><div class="footer-bottom"><span>© 2026 VAJRAKSH</span><p>Interactive design concept. Describes the intended product; no validated performance, certification, government endorsement or current feature availability is implied.</p><a href="#top">Back to top</a></div></footer>
+
+  <dialog id="briefing-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Close briefing preview">×</button><p class="eyebrow">Briefing request preview</p><h2 id="dialog-title">A good place to begin.</h2><p id="dialog-summary"></p><p>This is an interactive design mockup. No request has been sent and no information is stored.</p><a class="button button-primary" href="mailto:contact@vajraksh.com">Email the team</a><button class="quiet-link dialog-return">Return to the page</button></dialog>
+</body>
+</html>
